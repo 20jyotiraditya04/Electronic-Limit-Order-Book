@@ -36,9 +36,9 @@ private:
         return static_cast<int32_t>((price-min_price_)/tick_size);
     }
 public:
-    PriceLevelTable(uint32_t min_price, uint32_t max_price, uint32_t tick_size_):min_price_(min_price),max_price_(max_price),tick_size_(tick_size) {
+    PriceLevelTable(uint32_t min_price, uint32_t max_price, uint32_t tick_size_):min_price_(min_price),max_price_(max_price),tick_size(tick_size_) {
         assert(max_price_>min_price);
-        assert(tick_size_>0);
+        assert(tick_size>0);
 
         total_levels_=((max_price_-min_price_)/tick_size);
         levels_.resize(total_levels_);
@@ -68,7 +68,7 @@ public:
         }
         else {
             if (idx<best_ask_idx_) {
-                best_ask_idx=idx;
+                best_ask_idx_=idx;
             }
         }
         return true;
