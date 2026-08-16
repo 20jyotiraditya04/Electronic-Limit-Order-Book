@@ -17,6 +17,9 @@
 
 #include "OrderBookPrimitives.hpp"
 
+#include"L2Snapshot.hpp"
+
+
 using namespace std;
 
 
@@ -28,7 +31,7 @@ private:
     size_t total_levels_;
     vector<IntrusiveOrderList> levels_;
     int32_t best_bid_idx_{-1};
-    int32_t best_ask_idx_{-1};
+    int32_t best_ask_idx_{numeric_limits<int32_t>::max()};
     inline int32_t price_to_idx(uint32_t price) const noexcept {
         if (price<min_price_ || price>max_price_) {
             return -1;
@@ -40,7 +43,7 @@ public:
         assert(max_price_>min_price);
         assert(tick_size>0);
 
-        total_levels_=((max_price_-min_price_)/tick_size);
+        total_levels_=((max_price_-min_price_)/tick_size)+1;
         levels_.resize(total_levels_);
     }
 
@@ -79,6 +82,14 @@ public:
     int32_t best_ask_idx() const noexcept {
         return best_ask_idx_;
     }
+
+    void set_best_bid_idx(int32_t idx) noexcept {
+        best_bid_idx_=idx;
+    }
+    void set_best_ask_idx(int32_t idx)noexcept {
+        best_ask_idx_=idx;
+    }
+
     IntrusiveOrderList* get_best_bid_level() noexcept {
         if (best_bid_idx()<0) {
             return nullptr;
@@ -87,8 +98,7 @@ public:
 
     }
     IntrusiveOrderList* get_best_ask_level() noexcept {
-        if (best_ask_idx_ == numeric_limits<int32_t>::max())return nullptr;
+        if (best_ask_idx_==-1 || best_ask_idx_ == numeric_limits<int32_t>::max() || static_cast<size_t> (best_ask_idx_)>= total_levels_)return nullptr;
         return &levels_[best_ask_idx_];
     }
-
 };

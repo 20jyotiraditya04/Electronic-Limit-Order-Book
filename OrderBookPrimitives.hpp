@@ -36,7 +36,7 @@ class OrderPool{
     public:
         explicit OrderPool(uint32_t max_orders) : capacity_(max_orders)
         {
-            pool_.resize(max_orders);
+            pool_.resize(capacity_);
             free_stack_.reserve(capacity_);
 
 
