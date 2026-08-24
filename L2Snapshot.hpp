@@ -5,9 +5,6 @@
 #ifndef ELECTRONIC_LIMIT_ORDER_BOOK_L2SNAPSHOT_H
 #define ELECTRONIC_LIMIT_ORDER_BOOK_L2SNAPSHOT_H
 
-#endif //ELECTRONIC_LIMIT_ORDER_BOOK_L2SNAPSHOT_H
-
-
 #pragma once
 #include <cstdint>
 #include<iostream>
@@ -82,8 +79,13 @@ struct L2snapshot {
             *ptr='\0';
         }
 
-
         return static_cast<size_t>(ptr-buffer);
     }
 
+    size_t serialize_to_buffer(char* buffer, size_t max_length) const noexcept {
+        return Serialize_to_Buffer(buffer, max_length);
+    }
+
 };
+
+#endif //ELECTRONIC_LIMIT_ORDER_BOOK_L2SNAPSHOT_H

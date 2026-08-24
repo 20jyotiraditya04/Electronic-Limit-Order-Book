@@ -1,3 +1,6 @@
+#ifndef ELECTRONIC_LIMIT_ORDER_BOOK_ORDERBOOKPRIMITIVES_HPP
+#define ELECTRONIC_LIMIT_ORDER_BOOK_ORDERBOOKPRIMITIVES_HPP
+
 #include<cstdint>
 #include<cstddef>
 #include<vector>
@@ -147,3 +150,5 @@ class IntrusiveOrderList{
             return node;
         }
 };
+
+#endif // ELECTRONIC_LIMIT_ORDER_BOOK_ORDERBOOKPRIMITIVES_HPP

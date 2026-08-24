@@ -5,9 +5,6 @@
 #ifndef ELECTRONIC_LIMIT_ORDER_BOOK_PRICELEVELTABLE_HPP
 #define ELECTRONIC_LIMIT_ORDER_BOOK_PRICELEVELTABLE_HPP
 
-#endif //ELECTRONIC_LIMIT_ORDER_BOOK_PRICELEVELTABLE_HPP
-
-
 #pragma once
 #include <vector>
 #include <cstdint>
@@ -102,3 +99,5 @@ public:
         return &levels_[best_ask_idx_];
     }
 };
+
+#endif //ELECTRONIC_LIMIT_ORDER_BOOK_PRICELEVELTABLE_HPP
