@@ -8,4 +8,8 @@ include_directories(.)
 
 add_executable(TestLadder TestLadder.cpp)
 add_executable(TestFirst Test_first.cpp
-        Test_snapshot.cpp)
+        Test_snapshot.cpp
+        Test_cache.cpp
+        ICacheClient.hpp
+        RedisCacheClient.hpp
+        MemcachedCacheClient.hpp)
