@@ -12,4 +12,5 @@ add_executable(TestFirst Test_first.cpp
         Test_cache.cpp
         ICacheClient.hpp
         RedisCacheClient.hpp
-        MemcachedCacheClient.hpp)
+        MemcachedCacheClient.hpp
+        benchmark_caches.cpp)

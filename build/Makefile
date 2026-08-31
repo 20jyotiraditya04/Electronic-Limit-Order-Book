@@ -166,6 +166,30 @@ TestLadder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLadder.dir/build.make CMakeFiles/TestLadder.dir/TestLadder.cpp.s
 .PHONY : TestLadder.cpp.s
 
+Test_cache.o: Test_cache.cpp.o
+.PHONY : Test_cache.o
+
+# target to build an object file
+Test_cache.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_cache.cpp.o
+.PHONY : Test_cache.cpp.o
+
+Test_cache.i: Test_cache.cpp.i
+.PHONY : Test_cache.i
+
+# target to preprocess a source file
+Test_cache.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_cache.cpp.i
+.PHONY : Test_cache.cpp.i
+
+Test_cache.s: Test_cache.cpp.s
+.PHONY : Test_cache.s
+
+# target to generate assembly for a file
+Test_cache.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_cache.cpp.s
+.PHONY : Test_cache.cpp.s
+
 Test_first.o: Test_first.cpp.o
 .PHONY : Test_first.o
 
@@ -190,6 +214,54 @@ Test_first.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_first.cpp.s
 .PHONY : Test_first.cpp.s
 
+Test_snapshot.o: Test_snapshot.cpp.o
+.PHONY : Test_snapshot.o
+
+# target to build an object file
+Test_snapshot.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o
+.PHONY : Test_snapshot.cpp.o
+
+Test_snapshot.i: Test_snapshot.cpp.i
+.PHONY : Test_snapshot.i
+
+# target to preprocess a source file
+Test_snapshot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_snapshot.cpp.i
+.PHONY : Test_snapshot.cpp.i
+
+Test_snapshot.s: Test_snapshot.cpp.s
+.PHONY : Test_snapshot.s
+
+# target to generate assembly for a file
+Test_snapshot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_snapshot.cpp.s
+.PHONY : Test_snapshot.cpp.s
+
+benchmark_caches.o: benchmark_caches.cpp.o
+.PHONY : benchmark_caches.o
+
+# target to build an object file
+benchmark_caches.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o
+.PHONY : benchmark_caches.cpp.o
+
+benchmark_caches.i: benchmark_caches.cpp.i
+.PHONY : benchmark_caches.i
+
+# target to preprocess a source file
+benchmark_caches.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/benchmark_caches.cpp.i
+.PHONY : benchmark_caches.cpp.i
+
+benchmark_caches.s: benchmark_caches.cpp.s
+.PHONY : benchmark_caches.s
+
+# target to generate assembly for a file
+benchmark_caches.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/benchmark_caches.cpp.s
+.PHONY : benchmark_caches.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -203,9 +275,18 @@ help:
 	@echo "... TestLadder.o"
 	@echo "... TestLadder.i"
 	@echo "... TestLadder.s"
+	@echo "... Test_cache.o"
+	@echo "... Test_cache.i"
+	@echo "... Test_cache.s"
 	@echo "... Test_first.o"
 	@echo "... Test_first.i"
 	@echo "... Test_first.s"
+	@echo "... Test_snapshot.o"
+	@echo "... Test_snapshot.i"
+	@echo "... Test_snapshot.s"
+	@echo "... benchmark_caches.o"
+	@echo "... benchmark_caches.i"
+	@echo "... benchmark_caches.s"
 .PHONY : help
 
 

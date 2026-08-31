@@ -86,18 +86,66 @@ CMakeFiles/TestFirst.dir/Test_first.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestFirst.dir/Test_first.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/Test_first.cpp" -o CMakeFiles/TestFirst.dir/Test_first.cpp.s
 
+CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o: CMakeFiles/TestFirst.dir/flags.make
+CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o: /home/martian_duck/Projects/Electronic\ Limit\ Order\ Book/Electronic-Limit-Order-Book/Test_snapshot.cpp
+CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o: CMakeFiles/TestFirst.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o -MF CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o.d -o CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o -c "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/Test_snapshot.cpp"
+
+CMakeFiles/TestFirst.dir/Test_snapshot.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestFirst.dir/Test_snapshot.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/Test_snapshot.cpp" > CMakeFiles/TestFirst.dir/Test_snapshot.cpp.i
+
+CMakeFiles/TestFirst.dir/Test_snapshot.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestFirst.dir/Test_snapshot.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/Test_snapshot.cpp" -o CMakeFiles/TestFirst.dir/Test_snapshot.cpp.s
+
+CMakeFiles/TestFirst.dir/Test_cache.cpp.o: CMakeFiles/TestFirst.dir/flags.make
+CMakeFiles/TestFirst.dir/Test_cache.cpp.o: /home/martian_duck/Projects/Electronic\ Limit\ Order\ Book/Electronic-Limit-Order-Book/Test_cache.cpp
+CMakeFiles/TestFirst.dir/Test_cache.cpp.o: CMakeFiles/TestFirst.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TestFirst.dir/Test_cache.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestFirst.dir/Test_cache.cpp.o -MF CMakeFiles/TestFirst.dir/Test_cache.cpp.o.d -o CMakeFiles/TestFirst.dir/Test_cache.cpp.o -c "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/Test_cache.cpp"
+
+CMakeFiles/TestFirst.dir/Test_cache.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestFirst.dir/Test_cache.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/Test_cache.cpp" > CMakeFiles/TestFirst.dir/Test_cache.cpp.i
+
+CMakeFiles/TestFirst.dir/Test_cache.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestFirst.dir/Test_cache.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/Test_cache.cpp" -o CMakeFiles/TestFirst.dir/Test_cache.cpp.s
+
+CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o: CMakeFiles/TestFirst.dir/flags.make
+CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o: /home/martian_duck/Projects/Electronic\ Limit\ Order\ Book/Electronic-Limit-Order-Book/benchmark_caches.cpp
+CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o: CMakeFiles/TestFirst.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o -MF CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o.d -o CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o -c "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/benchmark_caches.cpp"
+
+CMakeFiles/TestFirst.dir/benchmark_caches.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestFirst.dir/benchmark_caches.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/benchmark_caches.cpp" > CMakeFiles/TestFirst.dir/benchmark_caches.cpp.i
+
+CMakeFiles/TestFirst.dir/benchmark_caches.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestFirst.dir/benchmark_caches.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/benchmark_caches.cpp" -o CMakeFiles/TestFirst.dir/benchmark_caches.cpp.s
+
 # Object files for target TestFirst
 TestFirst_OBJECTS = \
-"CMakeFiles/TestFirst.dir/Test_first.cpp.o"
+"CMakeFiles/TestFirst.dir/Test_first.cpp.o" \
+"CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o" \
+"CMakeFiles/TestFirst.dir/Test_cache.cpp.o" \
+"CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o"
 
 # External object files for target TestFirst
 TestFirst_EXTERNAL_OBJECTS =
 
 TestFirst: CMakeFiles/TestFirst.dir/Test_first.cpp.o
+TestFirst: CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o
+TestFirst: CMakeFiles/TestFirst.dir/Test_cache.cpp.o
+TestFirst: CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o
 TestFirst: CMakeFiles/TestFirst.dir/build.make
 TestFirst: CMakeFiles/TestFirst.dir/compiler_depend.ts
 TestFirst: CMakeFiles/TestFirst.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable TestFirst"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable TestFirst"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TestFirst.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

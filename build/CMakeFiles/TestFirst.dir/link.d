@@ -3,6 +3,9 @@ TestFirst: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o \
   CMakeFiles/TestFirst.dir/Test_first.cpp.o \
+  CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o \
+  CMakeFiles/TestFirst.dir/Test_cache.cpp.o \
+  CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libstdc++.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libm.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libm.so \
@@ -42,6 +45,12 @@ TestFirst: \
 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/crtbeginS.o:
 
 CMakeFiles/TestFirst.dir/Test_first.cpp.o:
+
+CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o:
+
+CMakeFiles/TestFirst.dir/Test_cache.cpp.o:
+
+CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/16.1.1/../../../../lib/libstdc++.so:
 
