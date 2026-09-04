@@ -6,22 +6,19 @@
 #define ELECTRONIC_LIMIT_ORDER_BOOK_MATCHINGENGINE_H
 
 #pragma once
-#include<cstdint>
-#include<vector>
-#include<algorithm>
-#include<functional>
+#include <cstdint>
+#include <vector>
+#include <algorithm>
+#include <chrono>
+#include <limits>
 #include "OrderBookPrimitives.hpp"
 #include "PriceLevelTable.hpp"
+#include "TradeEvent.hpp"
+#include "L2Snapshot.hpp"
 
-using namespace std;
-
-struct alignas(32) TradeEvent {
-    uint64_t maker_order_id;
-    uint64_t taker_order_id;
-    uint32_t price;
-    uint32_t qty;
-    uint64_t timestamp_ns;
-};
+// Non-allocating zero-overhead callback signatures
+using TradeCallback = void(*)(const TradeEvent&, void* context);
+using LifecycleCallback = void(*)(const OrderLifecycleEvent&, void* context);
 
 class MatchingEngine {
 private:
@@ -32,7 +29,23 @@ private:
 
     PriceLevelTable ladder_;
     OrderPool pool_;
-    vector<Order*> order_directory_;
+    std::vector<Order*> order_directory_;
+
+    uint64_t next_match_id_{1};
+
+    // Sub-Phase 3A: Event dissemination callbacks
+    TradeCallback trade_cb_{nullptr};
+    void* trade_ctx_{nullptr};
+    LifecycleCallback lifecycle_cb_{nullptr};
+    void* lifecycle_ctx_{nullptr};
+
+    [[nodiscard]] inline uint64_t current_time_ns() const noexcept {
+        return static_cast<uint64_t>(
+            std::chrono::duration_cast<std::chrono::nanoseconds>(
+                std::chrono::steady_clock::now().time_since_epoch()
+            ).count()
+        );
+    }
 
     void advance_best_bid(int32_t current_idx) noexcept {
         for (int32_t idx = current_idx; idx >= 0; --idx) {
@@ -53,12 +66,10 @@ private:
                 return;
             }
         }
-        ladder_.set_best_ask_idx(numeric_limits<int32_t>::max());
+        ladder_.set_best_ask_idx(std::numeric_limits<int32_t>::max());
     }
 
 public:
-    using TradeCallback = function<void(const TradeEvent&)>;
-
     MatchingEngine(uint32_t min_price, uint32_t max_price, uint32_t tick_size, uint32_t max_orders)
         : min_price_(min_price),
           max_price_(max_price),
@@ -68,63 +79,249 @@ public:
           pool_(max_orders),
           order_directory_(max_orders + 1, nullptr) {}
 
-    void add_order(uint64_t order_id, uint32_t price, uint32_t qty, uint8_t side,
-                   const TradeCallback& on_trade = nullptr) noexcept {
-        (void)on_trade;
-
-        Order* order = pool_.allocate();
-        if (!order) {
-            return;
-        }
-
-        order->order_id = order_id;
-        order->price = price;
-        order->qty = qty;
-        order->side = side;
-        order->prev = nullptr;
-        order->next = nullptr;
-
-        if (order_id < order_directory_.size()) {
-            order_directory_[order_id] = order;
-        }
-
-        ladder_.add_order(order, side);
-
-        if (side == 0) {
-            int32_t best_bid_idx = ladder_.best_bid_idx();
-            if (best_bid_idx >= 0) {
-                advance_best_bid(best_bid_idx);
-            }
-        } else {
-            int32_t best_ask_idx = ladder_.best_ask_idx();
-            if (best_ask_idx < numeric_limits<int32_t>::max()) {
-                advance_best_ask(best_ask_idx);
-            }
-        }
+    // Event listener registration
+    void set_trade_callback(TradeCallback cb, void* ctx = nullptr) noexcept {
+        trade_cb_ = cb;
+        trade_ctx_ = ctx;
     }
 
-    bool cancel_order(uint64_t order_id) {
+    void set_lifecycle_callback(LifecycleCallback cb, void* ctx = nullptr) noexcept {
+        lifecycle_cb_ = cb;
+        lifecycle_ctx_ = ctx;
+    }
+
+    // =========================================================================
+    // Continuous Double Auction Order Matching Loop
+    // =========================================================================
+    bool add_order(uint64_t order_id, uint32_t price, uint32_t qty, uint8_t side) noexcept {
+        if (price < min_price_ || price > max_price_ || qty == 0) [[unlikely]] {
+            return false;
+        }
+
+        uint32_t remaining_qty = qty;
+
+        // 1. Crossing / Matching Sweep
+        if (side == 0) {
+            // Incoming BUY Order: Cross against resting ASKs (lowest ask first)
+            while (remaining_qty > 0) {
+                int32_t best_ask_idx = ladder_.best_ask_idx();
+                if (best_ask_idx >= static_cast<int32_t>(total_levels_) ||
+                    best_ask_idx == std::numeric_limits<int32_t>::max()) {
+                    break; // No sellers available
+                }
+
+                uint32_t best_ask_price = min_price_ + (static_cast<uint32_t>(best_ask_idx) * tick_size_);
+                if (price < best_ask_price) {
+                    break; // Price does not cross
+                }
+
+                IntrusiveOrderList* level = ladder_.get_level(best_ask_price);
+                if (!level || level->empty()) {
+                    advance_best_ask(best_ask_idx + 1);
+                    continue;
+                }
+
+                // Match FIFO orders at this price level
+                while (!level->empty() && remaining_qty > 0) {
+                    Order* maker = level->head();
+                    uint32_t match_qty = std::min(remaining_qty, static_cast<uint32_t>(maker->qty));
+
+                    remaining_qty -= match_qty;
+                    maker->qty -= match_qty;
+
+                    // Emit trade execution event
+                    if (trade_cb_) [[likely]] {
+                        TradeEvent event{
+                            .timestamp_ns   = current_time_ns(),
+                            .match_id       = next_match_id_++,
+                            .maker_order_id = maker->order_id,
+                            .taker_order_id = order_id,
+                            .price          = static_cast<uint32_t>(maker->price),
+                            .qty            = match_qty,
+                            .taker_side     = side
+                        };
+                        trade_cb_(event, trade_ctx_);
+                    }
+
+                    // Fully filled maker order: unhook and return to pool
+                    if (maker->qty == 0) {
+                        level->remove(maker);
+                        if (maker->order_id < order_directory_.size()) {
+                            order_directory_[maker->order_id] = nullptr;
+                        }
+                        pool_.deallocate(maker);
+                    }
+                }
+
+                // Advance best ask index if level was cleared
+                if (level->empty()) {
+                    advance_best_ask(best_ask_idx + 1);
+                }
+            }
+        } else {
+            // Incoming SELL Order: Cross against resting BIDS (highest bid first)
+            while (remaining_qty > 0) {
+                int32_t best_bid_idx = ladder_.best_bid_idx();
+                if (best_bid_idx < 0) {
+                    break; // No buyers available
+                }
+
+                uint32_t best_bid_price = min_price_ + (static_cast<uint32_t>(best_bid_idx) * tick_size_);
+                if (price > best_bid_price) {
+                    break; // Price does not cross
+                }
+
+                IntrusiveOrderList* level = ladder_.get_level(best_bid_price);
+                if (!level || level->empty()) {
+                    advance_best_bid(best_bid_idx - 1);
+                    continue;
+                }
+
+                // Match FIFO orders at this price level
+                while (!level->empty() && remaining_qty > 0) {
+                    Order* maker = level->head();
+                    uint32_t match_qty = std::min(remaining_qty, static_cast<uint32_t>(maker->qty));
+
+                    remaining_qty -= match_qty;
+                    maker->qty -= match_qty;
+
+                    // Emit trade execution event
+                    if (trade_cb_) [[likely]] {
+                        TradeEvent event{
+                            .timestamp_ns   = current_time_ns(),
+                            .match_id       = next_match_id_++,
+                            .maker_order_id = maker->order_id,
+                            .taker_order_id = order_id,
+                            .price          = static_cast<uint32_t>(maker->price),
+                            .qty            = match_qty,
+                            .taker_side     = side
+                        };
+                        trade_cb_(event, trade_ctx_);
+                    }
+
+                    // Fully filled maker order: unhook and return to pool
+                    if (maker->qty == 0) {
+                        level->remove(maker);
+                        if (maker->order_id < order_directory_.size()) {
+                            order_directory_[maker->order_id] = nullptr;
+                        }
+                        pool_.deallocate(maker);
+                    }
+                }
+
+                // Advance best bid index if level was cleared
+                if (level->empty()) {
+                    advance_best_bid(best_bid_idx - 1);
+                }
+            }
+        }
+
+        // 2. Residual Placement: Rest remaining quantity on the ladder
+        if (remaining_qty > 0) {
+            Order* order = pool_.allocate();
+            if (!order) [[unlikely]] {
+                return false; // Order pool exhausted
+            }
+
+            order->order_id = order_id;
+            order->price    = price;
+            order->qty      = remaining_qty;
+            order->side     = side;
+            order->prev     = nullptr;
+            order->next     = nullptr;
+
+            if (order_id < order_directory_.size()) {
+                order_directory_[order_id] = order;
+            }
+
+            ladder_.add_order(order, side);
+
+            // Update top-of-book indices if this new order creates a new best price
+            if (side == 0) {
+                int32_t idx = static_cast<int32_t>((price - min_price_) / tick_size_);
+                if (idx > ladder_.best_bid_idx()) {
+                    ladder_.set_best_bid_idx(idx);
+                }
+            } else {
+                int32_t idx = static_cast<int32_t>((price - min_price_) / tick_size_);
+                if (idx < ladder_.best_ask_idx()) {
+                    ladder_.set_best_ask_idx(idx);
+                }
+            }
+
+            // Emit Order Placed event
+            if (lifecycle_cb_) [[likely]] {
+                OrderLifecycleEvent event{
+                    .timestamp_ns = current_time_ns(),
+                    .order_id     = order_id,
+                    .price        = price,
+                    .qty          = remaining_qty,
+                    .side         = side,
+                    .event_type   = EventType::ORDER_PLACED
+                };
+                lifecycle_cb_(event, lifecycle_ctx_);
+            }
+        }
+
+        return true;
+    }
+
+    // =========================================================================
+    // O(1) Cancellation via Direct Directory Lookup
+    // =========================================================================
+    bool cancel_order(uint64_t order_id) noexcept {
         if (order_id >= order_directory_.size() || order_directory_[order_id] == nullptr) {
             return false;
         }
 
         Order* order = order_directory_[order_id];
-        IntrusiveOrderList* level = ladder_.get_level(static_cast<uint32_t>(order->price));
+        uint32_t order_price = static_cast<uint32_t>(order->price);
+        uint32_t order_qty   = static_cast<uint32_t>(order->qty);
+        uint8_t  order_side  = static_cast<uint8_t>(order->side);
+
+        IntrusiveOrderList* level = ladder_.get_level(order_price);
         if (level) {
             level->remove(order);
+
+            // If level becomes empty, advance best tracker
+            if (level->empty()) {
+                int32_t idx = static_cast<int32_t>((order_price - min_price_) / tick_size_);
+                if (order_side == 0 && idx == ladder_.best_bid_idx()) {
+                    advance_best_bid(idx - 1);
+                } else if (order_side == 1 && idx == ladder_.best_ask_idx()) {
+                    advance_best_ask(idx + 1);
+                }
+            }
         }
 
         order_directory_[order_id] = nullptr;
         pool_.deallocate(order);
+
+        // Emit Order Cancelled event
+        if (lifecycle_cb_) [[likely]] {
+            OrderLifecycleEvent event{
+                .timestamp_ns = current_time_ns(),
+                .order_id     = order_id,
+                .price        = order_price,
+                .qty          = order_qty,
+                .side         = order_side,
+                .event_type   = EventType::ORDER_CANCELLED
+            };
+            lifecycle_cb_(event, lifecycle_ctx_);
+        }
+
         return true;
     }
 
-    size_t available_pool_slots() const noexcept {
+    [[nodiscard]] size_t available_pool_slots() const noexcept {
         return pool_.available();
     }
 
+    // =========================================================================
+    // Level 2 (L2) Depth Snapshot Extraction
+    // =========================================================================
     template<uint32_t Depth = 5>
-    L2snapshot<Depth> get_l2_snapshot() const noexcept {
+    [[nodiscard]] L2snapshot<Depth> get_l2_snapshot() const noexcept {
         L2snapshot<Depth> snapshot;
 
         int32_t bid_idx = ladder_.best_bid_idx();
@@ -167,4 +364,4 @@ public:
     }
 };
 
-#endif //ELECTRONIC_LIMIT_ORDER_BOOK_MATCHINGENGINE_H
+#endif // ELECTRONIC_LIMIT_ORDER_BOOK_MATCHINGENGINE_H

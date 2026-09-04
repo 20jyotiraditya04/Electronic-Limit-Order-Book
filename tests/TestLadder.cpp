@@ -5,7 +5,7 @@
 
 
 #include <iostream>
-#include "PriceLevelTable.hpp"
+#include "../include/PriceLevelTable.hpp"
 
 int main() {
     PriceLevelTable ladder(10000, 10500, 1);

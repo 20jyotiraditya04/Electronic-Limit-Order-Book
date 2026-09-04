@@ -10,9 +10,9 @@
 #include <algorithm>
 #include <memory>
 #include <iomanip>
-#include "L2Snapshot.hpp"
-#include "RedisCacheClient.hpp"
-#include "MemcachedCacheClient.hpp"
+#include "../include/L2Snapshot.hpp"
+#include "../include/RedisCacheClient.hpp"
+#include "../include/MemcachedCacheClient.hpp"
 
 
 

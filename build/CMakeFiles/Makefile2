@@ -67,6 +67,7 @@ all: CMakeFiles/TestLadder.dir/all
 all: CMakeFiles/TestFirst.dir/all
 all: CMakeFiles/TestSnapshot.dir/all
 all: CMakeFiles/TestCache.dir/all
+all: CMakeFiles/TestEvents.dir/all
 all: CMakeFiles/BenchmarkCaches.dir/all
 .PHONY : all
 
@@ -75,6 +76,7 @@ codegen: CMakeFiles/TestLadder.dir/codegen
 codegen: CMakeFiles/TestFirst.dir/codegen
 codegen: CMakeFiles/TestSnapshot.dir/codegen
 codegen: CMakeFiles/TestCache.dir/codegen
+codegen: CMakeFiles/TestEvents.dir/codegen
 codegen: CMakeFiles/BenchmarkCaches.dir/codegen
 .PHONY : codegen
 
@@ -87,6 +89,7 @@ clean: CMakeFiles/TestLadder.dir/clean
 clean: CMakeFiles/TestFirst.dir/clean
 clean: CMakeFiles/TestSnapshot.dir/clean
 clean: CMakeFiles/TestCache.dir/clean
+clean: CMakeFiles/TestEvents.dir/clean
 clean: CMakeFiles/BenchmarkCaches.dir/clean
 .PHONY : clean
 
@@ -97,7 +100,7 @@ clean: CMakeFiles/BenchmarkCaches.dir/clean
 CMakeFiles/TestLadder.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLadder.dir/build.make CMakeFiles/TestLadder.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLadder.dir/build.make CMakeFiles/TestLadder.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=7,8 "Built target TestLadder"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=9,10 "Built target TestLadder"
 .PHONY : CMakeFiles/TestLadder.dir/all
 
 # Build rule for subdir invocation for target.
@@ -114,7 +117,7 @@ TestLadder: CMakeFiles/TestLadder.dir/rule
 # codegen rule for target.
 CMakeFiles/TestLadder.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLadder.dir/build.make CMakeFiles/TestLadder.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=7,8 "Finished codegen for target TestLadder"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=9,10 "Finished codegen for target TestLadder"
 .PHONY : CMakeFiles/TestLadder.dir/codegen
 
 # clean rule for target.
@@ -129,7 +132,7 @@ CMakeFiles/TestLadder.dir/clean:
 CMakeFiles/TestFirst.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=5,6 "Built target TestFirst"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=7,8 "Built target TestFirst"
 .PHONY : CMakeFiles/TestFirst.dir/all
 
 # Build rule for subdir invocation for target.
@@ -146,7 +149,7 @@ TestFirst: CMakeFiles/TestFirst.dir/rule
 # codegen rule for target.
 CMakeFiles/TestFirst.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=5,6 "Finished codegen for target TestFirst"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=7,8 "Finished codegen for target TestFirst"
 .PHONY : CMakeFiles/TestFirst.dir/codegen
 
 # clean rule for target.
@@ -161,7 +164,7 @@ CMakeFiles/TestFirst.dir/clean:
 CMakeFiles/TestSnapshot.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSnapshot.dir/build.make CMakeFiles/TestSnapshot.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSnapshot.dir/build.make CMakeFiles/TestSnapshot.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=9,10 "Built target TestSnapshot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=11,12 "Built target TestSnapshot"
 .PHONY : CMakeFiles/TestSnapshot.dir/all
 
 # Build rule for subdir invocation for target.
@@ -178,7 +181,7 @@ TestSnapshot: CMakeFiles/TestSnapshot.dir/rule
 # codegen rule for target.
 CMakeFiles/TestSnapshot.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSnapshot.dir/build.make CMakeFiles/TestSnapshot.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=9,10 "Finished codegen for target TestSnapshot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=11,12 "Finished codegen for target TestSnapshot"
 .PHONY : CMakeFiles/TestSnapshot.dir/codegen
 
 # clean rule for target.
@@ -217,6 +220,38 @@ CMakeFiles/TestCache.dir/codegen:
 CMakeFiles/TestCache.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestCache.dir/build.make CMakeFiles/TestCache.dir/clean
 .PHONY : CMakeFiles/TestCache.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/TestEvents.dir
+
+# All Build rule for target.
+CMakeFiles/TestEvents.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestEvents.dir/build.make CMakeFiles/TestEvents.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestEvents.dir/build.make CMakeFiles/TestEvents.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=5,6 "Built target TestEvents"
+.PHONY : CMakeFiles/TestEvents.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/TestEvents.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TestEvents.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" 0
+.PHONY : CMakeFiles/TestEvents.dir/rule
+
+# Convenience name for target.
+TestEvents: CMakeFiles/TestEvents.dir/rule
+.PHONY : TestEvents
+
+# codegen rule for target.
+CMakeFiles/TestEvents.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestEvents.dir/build.make CMakeFiles/TestEvents.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=5,6 "Finished codegen for target TestEvents"
+.PHONY : CMakeFiles/TestEvents.dir/codegen
+
+# clean rule for target.
+CMakeFiles/TestEvents.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestEvents.dir/build.make CMakeFiles/TestEvents.dir/clean
+.PHONY : CMakeFiles/TestEvents.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/BenchmarkCaches.dir

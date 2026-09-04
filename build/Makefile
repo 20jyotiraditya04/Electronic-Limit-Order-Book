@@ -169,6 +169,19 @@ TestCache/fast:
 .PHONY : TestCache/fast
 
 #=============================================================================
+# Target rules for targets named TestEvents
+
+# Build rule for target.
+TestEvents: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestEvents
+.PHONY : TestEvents
+
+# fast build rule for target.
+TestEvents/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestEvents.dir/build.make CMakeFiles/TestEvents.dir/build
+.PHONY : TestEvents/fast
+
+#=============================================================================
 # Target rules for targets named BenchmarkCaches
 
 # Build rule for target.
@@ -301,6 +314,30 @@ tests/Test_snapshot.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSnapshot.dir/build.make CMakeFiles/TestSnapshot.dir/tests/Test_snapshot.cpp.s
 .PHONY : tests/Test_snapshot.cpp.s
 
+tests/test_events.o: tests/test_events.cpp.o
+.PHONY : tests/test_events.o
+
+# target to build an object file
+tests/test_events.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestEvents.dir/build.make CMakeFiles/TestEvents.dir/tests/test_events.cpp.o
+.PHONY : tests/test_events.cpp.o
+
+tests/test_events.i: tests/test_events.cpp.i
+.PHONY : tests/test_events.i
+
+# target to preprocess a source file
+tests/test_events.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestEvents.dir/build.make CMakeFiles/TestEvents.dir/tests/test_events.cpp.i
+.PHONY : tests/test_events.cpp.i
+
+tests/test_events.s: tests/test_events.cpp.s
+.PHONY : tests/test_events.s
+
+# target to generate assembly for a file
+tests/test_events.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestEvents.dir/build.make CMakeFiles/TestEvents.dir/tests/test_events.cpp.s
+.PHONY : tests/test_events.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -311,6 +348,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... BenchmarkCaches"
 	@echo "... TestCache"
+	@echo "... TestEvents"
 	@echo "... TestFirst"
 	@echo "... TestLadder"
 	@echo "... TestSnapshot"
@@ -329,6 +367,9 @@ help:
 	@echo "... tests/Test_snapshot.o"
 	@echo "... tests/Test_snapshot.i"
 	@echo "... tests/Test_snapshot.s"
+	@echo "... tests/test_events.o"
+	@echo "... tests/test_events.i"
+	@echo "... tests/test_events.s"
 .PHONY : help
 
 

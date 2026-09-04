@@ -2,6 +2,7 @@
 /home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles/TestFirst.dir
 /home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles/TestSnapshot.dir
 /home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles/TestCache.dir
+/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles/TestEvents.dir
 /home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles/BenchmarkCaches.dir
 /home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles/edit_cache.dir
 /home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles/rebuild_cache.dir

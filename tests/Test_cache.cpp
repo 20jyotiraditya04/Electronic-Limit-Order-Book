@@ -5,9 +5,9 @@
 #include <cassert>
 #include <memory>
 #include <vector>
-#include "L2Snapshot.hpp"
-#include "RedisCacheClient.hpp"
-#include "MemcachedCacheClient.hpp"
+#include "../include/L2Snapshot.hpp"
+#include "../include/RedisCacheClient.hpp"
+#include "../include/MemcachedCacheClient.hpp"
 
 int main() {
     std::cout << "===================================================\n";
