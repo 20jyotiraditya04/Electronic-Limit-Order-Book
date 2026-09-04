@@ -72,28 +72,28 @@ include CMakeFiles/TestLadder.dir/flags.make
 CMakeFiles/TestLadder.dir/codegen:
 .PHONY : CMakeFiles/TestLadder.dir/codegen
 
-CMakeFiles/TestLadder.dir/TestLadder.cpp.o: CMakeFiles/TestLadder.dir/flags.make
-CMakeFiles/TestLadder.dir/TestLadder.cpp.o: /home/martian_duck/Projects/Electronic\ Limit\ Order\ Book/Electronic-Limit-Order-Book/TestLadder.cpp
-CMakeFiles/TestLadder.dir/TestLadder.cpp.o: CMakeFiles/TestLadder.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestLadder.dir/TestLadder.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestLadder.dir/TestLadder.cpp.o -MF CMakeFiles/TestLadder.dir/TestLadder.cpp.o.d -o CMakeFiles/TestLadder.dir/TestLadder.cpp.o -c "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/TestLadder.cpp"
+CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o: CMakeFiles/TestLadder.dir/flags.make
+CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o: /home/martian_duck/Projects/Electronic\ Limit\ Order\ Book/Electronic-Limit-Order-Book/tests/TestLadder.cpp
+CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o: CMakeFiles/TestLadder.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o -MF CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o.d -o CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o -c "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/tests/TestLadder.cpp"
 
-CMakeFiles/TestLadder.dir/TestLadder.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestLadder.dir/TestLadder.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/TestLadder.cpp" > CMakeFiles/TestLadder.dir/TestLadder.cpp.i
+CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/tests/TestLadder.cpp" > CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.i
 
-CMakeFiles/TestLadder.dir/TestLadder.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestLadder.dir/TestLadder.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/TestLadder.cpp" -o CMakeFiles/TestLadder.dir/TestLadder.cpp.s
+CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/tests/TestLadder.cpp" -o CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.s
 
 # Object files for target TestLadder
 TestLadder_OBJECTS = \
-"CMakeFiles/TestLadder.dir/TestLadder.cpp.o"
+"CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o"
 
 # External object files for target TestLadder
 TestLadder_EXTERNAL_OBJECTS =
 
-TestLadder: CMakeFiles/TestLadder.dir/TestLadder.cpp.o
+TestLadder: CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o
 TestLadder: CMakeFiles/TestLadder.dir/build.make
 TestLadder: CMakeFiles/TestLadder.dir/compiler_depend.ts
 TestLadder: CMakeFiles/TestLadder.dir/link.txt

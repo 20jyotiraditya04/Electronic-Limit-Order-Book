@@ -142,125 +142,164 @@ TestFirst/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/build
 .PHONY : TestFirst/fast
 
-TestLadder.o: TestLadder.cpp.o
-.PHONY : TestLadder.o
+#=============================================================================
+# Target rules for targets named TestSnapshot
+
+# Build rule for target.
+TestSnapshot: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestSnapshot
+.PHONY : TestSnapshot
+
+# fast build rule for target.
+TestSnapshot/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSnapshot.dir/build.make CMakeFiles/TestSnapshot.dir/build
+.PHONY : TestSnapshot/fast
+
+#=============================================================================
+# Target rules for targets named TestCache
+
+# Build rule for target.
+TestCache: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestCache
+.PHONY : TestCache
+
+# fast build rule for target.
+TestCache/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestCache.dir/build.make CMakeFiles/TestCache.dir/build
+.PHONY : TestCache/fast
+
+#=============================================================================
+# Target rules for targets named BenchmarkCaches
+
+# Build rule for target.
+BenchmarkCaches: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BenchmarkCaches
+.PHONY : BenchmarkCaches
+
+# fast build rule for target.
+BenchmarkCaches/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BenchmarkCaches.dir/build.make CMakeFiles/BenchmarkCaches.dir/build
+.PHONY : BenchmarkCaches/fast
+
+benchmarks/benchmark_caches.o: benchmarks/benchmark_caches.cpp.o
+.PHONY : benchmarks/benchmark_caches.o
 
 # target to build an object file
-TestLadder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLadder.dir/build.make CMakeFiles/TestLadder.dir/TestLadder.cpp.o
-.PHONY : TestLadder.cpp.o
+benchmarks/benchmark_caches.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BenchmarkCaches.dir/build.make CMakeFiles/BenchmarkCaches.dir/benchmarks/benchmark_caches.cpp.o
+.PHONY : benchmarks/benchmark_caches.cpp.o
 
-TestLadder.i: TestLadder.cpp.i
-.PHONY : TestLadder.i
+benchmarks/benchmark_caches.i: benchmarks/benchmark_caches.cpp.i
+.PHONY : benchmarks/benchmark_caches.i
 
 # target to preprocess a source file
-TestLadder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLadder.dir/build.make CMakeFiles/TestLadder.dir/TestLadder.cpp.i
-.PHONY : TestLadder.cpp.i
+benchmarks/benchmark_caches.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BenchmarkCaches.dir/build.make CMakeFiles/BenchmarkCaches.dir/benchmarks/benchmark_caches.cpp.i
+.PHONY : benchmarks/benchmark_caches.cpp.i
 
-TestLadder.s: TestLadder.cpp.s
-.PHONY : TestLadder.s
+benchmarks/benchmark_caches.s: benchmarks/benchmark_caches.cpp.s
+.PHONY : benchmarks/benchmark_caches.s
 
 # target to generate assembly for a file
-TestLadder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLadder.dir/build.make CMakeFiles/TestLadder.dir/TestLadder.cpp.s
-.PHONY : TestLadder.cpp.s
+benchmarks/benchmark_caches.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BenchmarkCaches.dir/build.make CMakeFiles/BenchmarkCaches.dir/benchmarks/benchmark_caches.cpp.s
+.PHONY : benchmarks/benchmark_caches.cpp.s
 
-Test_cache.o: Test_cache.cpp.o
-.PHONY : Test_cache.o
+tests/TestLadder.o: tests/TestLadder.cpp.o
+.PHONY : tests/TestLadder.o
 
 # target to build an object file
-Test_cache.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_cache.cpp.o
-.PHONY : Test_cache.cpp.o
+tests/TestLadder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLadder.dir/build.make CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o
+.PHONY : tests/TestLadder.cpp.o
 
-Test_cache.i: Test_cache.cpp.i
-.PHONY : Test_cache.i
+tests/TestLadder.i: tests/TestLadder.cpp.i
+.PHONY : tests/TestLadder.i
 
 # target to preprocess a source file
-Test_cache.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_cache.cpp.i
-.PHONY : Test_cache.cpp.i
+tests/TestLadder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLadder.dir/build.make CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.i
+.PHONY : tests/TestLadder.cpp.i
 
-Test_cache.s: Test_cache.cpp.s
-.PHONY : Test_cache.s
+tests/TestLadder.s: tests/TestLadder.cpp.s
+.PHONY : tests/TestLadder.s
 
 # target to generate assembly for a file
-Test_cache.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_cache.cpp.s
-.PHONY : Test_cache.cpp.s
+tests/TestLadder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLadder.dir/build.make CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.s
+.PHONY : tests/TestLadder.cpp.s
 
-Test_first.o: Test_first.cpp.o
-.PHONY : Test_first.o
+tests/Test_cache.o: tests/Test_cache.cpp.o
+.PHONY : tests/Test_cache.o
 
 # target to build an object file
-Test_first.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_first.cpp.o
-.PHONY : Test_first.cpp.o
+tests/Test_cache.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestCache.dir/build.make CMakeFiles/TestCache.dir/tests/Test_cache.cpp.o
+.PHONY : tests/Test_cache.cpp.o
 
-Test_first.i: Test_first.cpp.i
-.PHONY : Test_first.i
+tests/Test_cache.i: tests/Test_cache.cpp.i
+.PHONY : tests/Test_cache.i
 
 # target to preprocess a source file
-Test_first.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_first.cpp.i
-.PHONY : Test_first.cpp.i
+tests/Test_cache.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestCache.dir/build.make CMakeFiles/TestCache.dir/tests/Test_cache.cpp.i
+.PHONY : tests/Test_cache.cpp.i
 
-Test_first.s: Test_first.cpp.s
-.PHONY : Test_first.s
+tests/Test_cache.s: tests/Test_cache.cpp.s
+.PHONY : tests/Test_cache.s
 
 # target to generate assembly for a file
-Test_first.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_first.cpp.s
-.PHONY : Test_first.cpp.s
+tests/Test_cache.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestCache.dir/build.make CMakeFiles/TestCache.dir/tests/Test_cache.cpp.s
+.PHONY : tests/Test_cache.cpp.s
 
-Test_snapshot.o: Test_snapshot.cpp.o
-.PHONY : Test_snapshot.o
+tests/Test_first.o: tests/Test_first.cpp.o
+.PHONY : tests/Test_first.o
 
 # target to build an object file
-Test_snapshot.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o
-.PHONY : Test_snapshot.cpp.o
+tests/Test_first.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/tests/Test_first.cpp.o
+.PHONY : tests/Test_first.cpp.o
 
-Test_snapshot.i: Test_snapshot.cpp.i
-.PHONY : Test_snapshot.i
+tests/Test_first.i: tests/Test_first.cpp.i
+.PHONY : tests/Test_first.i
 
 # target to preprocess a source file
-Test_snapshot.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_snapshot.cpp.i
-.PHONY : Test_snapshot.cpp.i
+tests/Test_first.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/tests/Test_first.cpp.i
+.PHONY : tests/Test_first.cpp.i
 
-Test_snapshot.s: Test_snapshot.cpp.s
-.PHONY : Test_snapshot.s
+tests/Test_first.s: tests/Test_first.cpp.s
+.PHONY : tests/Test_first.s
 
 # target to generate assembly for a file
-Test_snapshot.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/Test_snapshot.cpp.s
-.PHONY : Test_snapshot.cpp.s
+tests/Test_first.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/tests/Test_first.cpp.s
+.PHONY : tests/Test_first.cpp.s
 
-benchmark_caches.o: benchmark_caches.cpp.o
-.PHONY : benchmark_caches.o
+tests/Test_snapshot.o: tests/Test_snapshot.cpp.o
+.PHONY : tests/Test_snapshot.o
 
 # target to build an object file
-benchmark_caches.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o
-.PHONY : benchmark_caches.cpp.o
+tests/Test_snapshot.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSnapshot.dir/build.make CMakeFiles/TestSnapshot.dir/tests/Test_snapshot.cpp.o
+.PHONY : tests/Test_snapshot.cpp.o
 
-benchmark_caches.i: benchmark_caches.cpp.i
-.PHONY : benchmark_caches.i
+tests/Test_snapshot.i: tests/Test_snapshot.cpp.i
+.PHONY : tests/Test_snapshot.i
 
 # target to preprocess a source file
-benchmark_caches.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/benchmark_caches.cpp.i
-.PHONY : benchmark_caches.cpp.i
+tests/Test_snapshot.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSnapshot.dir/build.make CMakeFiles/TestSnapshot.dir/tests/Test_snapshot.cpp.i
+.PHONY : tests/Test_snapshot.cpp.i
 
-benchmark_caches.s: benchmark_caches.cpp.s
-.PHONY : benchmark_caches.s
+tests/Test_snapshot.s: tests/Test_snapshot.cpp.s
+.PHONY : tests/Test_snapshot.s
 
 # target to generate assembly for a file
-benchmark_caches.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestFirst.dir/build.make CMakeFiles/TestFirst.dir/benchmark_caches.cpp.s
-.PHONY : benchmark_caches.cpp.s
+tests/Test_snapshot.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestSnapshot.dir/build.make CMakeFiles/TestSnapshot.dir/tests/Test_snapshot.cpp.s
+.PHONY : tests/Test_snapshot.cpp.s
 
 # Help Target
 help:
@@ -270,23 +309,26 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... BenchmarkCaches"
+	@echo "... TestCache"
 	@echo "... TestFirst"
 	@echo "... TestLadder"
-	@echo "... TestLadder.o"
-	@echo "... TestLadder.i"
-	@echo "... TestLadder.s"
-	@echo "... Test_cache.o"
-	@echo "... Test_cache.i"
-	@echo "... Test_cache.s"
-	@echo "... Test_first.o"
-	@echo "... Test_first.i"
-	@echo "... Test_first.s"
-	@echo "... Test_snapshot.o"
-	@echo "... Test_snapshot.i"
-	@echo "... Test_snapshot.s"
-	@echo "... benchmark_caches.o"
-	@echo "... benchmark_caches.i"
-	@echo "... benchmark_caches.s"
+	@echo "... TestSnapshot"
+	@echo "... benchmarks/benchmark_caches.o"
+	@echo "... benchmarks/benchmark_caches.i"
+	@echo "... benchmarks/benchmark_caches.s"
+	@echo "... tests/TestLadder.o"
+	@echo "... tests/TestLadder.i"
+	@echo "... tests/TestLadder.s"
+	@echo "... tests/Test_cache.o"
+	@echo "... tests/Test_cache.i"
+	@echo "... tests/Test_cache.s"
+	@echo "... tests/Test_first.o"
+	@echo "... tests/Test_first.i"
+	@echo "... tests/Test_first.s"
+	@echo "... tests/Test_snapshot.o"
+	@echo "... tests/Test_snapshot.i"
+	@echo "... tests/Test_snapshot.s"
 .PHONY : help
 
 

@@ -1,13 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TestFirst.dir/link.d"
-  "CMakeFiles/TestFirst.dir/Test_cache.cpp.o"
-  "CMakeFiles/TestFirst.dir/Test_cache.cpp.o.d"
-  "CMakeFiles/TestFirst.dir/Test_first.cpp.o"
-  "CMakeFiles/TestFirst.dir/Test_first.cpp.o.d"
-  "CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o"
-  "CMakeFiles/TestFirst.dir/Test_snapshot.cpp.o.d"
-  "CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o"
-  "CMakeFiles/TestFirst.dir/benchmark_caches.cpp.o.d"
+  "CMakeFiles/TestFirst.dir/tests/Test_first.cpp.o"
+  "CMakeFiles/TestFirst.dir/tests/Test_first.cpp.o.d"
   "TestFirst"
   "TestFirst.pdb"
 )

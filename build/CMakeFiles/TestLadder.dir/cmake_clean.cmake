@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TestLadder.dir/link.d"
-  "CMakeFiles/TestLadder.dir/TestLadder.cpp.o"
-  "CMakeFiles/TestLadder.dir/TestLadder.cpp.o.d"
+  "CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o"
+  "CMakeFiles/TestLadder.dir/tests/TestLadder.cpp.o.d"
   "TestLadder"
   "TestLadder.pdb"
 )

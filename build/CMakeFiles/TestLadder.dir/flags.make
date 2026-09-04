@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/."
+CXX_INCLUDES = -I"/home/martian_duck/Projects/Electronic Limit Order Book/Electronic-Limit-Order-Book/include"
 
 CXX_FLAGS = -std=gnu++17
 
